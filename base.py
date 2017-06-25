@@ -2,9 +2,9 @@
 from flask import Flask, render_template, Response
 
 # emulated camera
-from camera import Camera
+#from camera import Camera
 
-#from webcam import Camera
+from webcam import Camera
 
 # Raspberry Pi camera module (requires picamera package)
 # from camera_pi import Camera
@@ -20,7 +20,7 @@ def index():
 
 def gen(camera):
     """Video streaming generator function."""
-    #camera.start()
+    camera.start()
     while True:
         frame = camera.get_frame()
         yield (b'--frame\r\n'
